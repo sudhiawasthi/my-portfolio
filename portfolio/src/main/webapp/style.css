@@ -1,8 +1,9 @@
 
 
 img {
-    height: 500px;
-    width: 500px;
+    height: auto;
+    width: auto;
+    border-radius: 50%
 }
 
 
@@ -22,7 +23,7 @@ img {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color: #111; /* Black */
+  background-color: #034f84; /* Dark blue */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -32,13 +33,13 @@ img {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #fff;
   display: block;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: grey;
 }
 
 /* Style page content */
@@ -54,6 +55,27 @@ img {
   .sidenav a {font-size: 18px;}
 }
 
+/* Icons at end of side bar */
+.icon-bar {
+  width: 100%; /* Full-width */
+  background-color: #034f84; /* Dark-grey background */
+  overflow: auto; /* Overflow due to float */
+  margin-top: 100%
+}
+
+.icon-bar a {
+  float: left; /* Float links side by side */
+  text-align: center; /* Center-align text */
+  width: 20%; /* Equal width (5 icons with 20% width each = 100%) */
+  padding: 12px 0; /* Some top and bottom padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 36px; /* Increased font size */
+}
+
+.icon-bar a:hover {
+  background-color: #92a8d1; /* Add a hover color */
+}
 
 
 
