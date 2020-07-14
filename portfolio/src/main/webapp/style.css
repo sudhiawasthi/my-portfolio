@@ -109,6 +109,7 @@
 .section-heading{
  color: #034f84;
  font-weight: bolder;
+ margin-top:50px;
  }
 
 /* Timeline holder */
@@ -180,4 +181,9 @@ li.timeline-item::before {
     border-width: 5px;
     border-style: solid;
     border-color: #034f84;
+}
+
+.achievement{
+    list-style-image: url(Images/Achievements/star.jpeg);
+    
 }
