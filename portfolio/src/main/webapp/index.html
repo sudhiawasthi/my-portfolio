@@ -28,7 +28,7 @@
         <!-- Side Nav Bar -->
         <section>
             <div class="sidenav">
-                <img  class="center" src = "/Images/myPhoto.jpg">
+                <img  class="center" src = "/Images/myPhoto.jpg" id = "mainimage">
                 <a href="#aboutme">About Me</a>
                 <a href="#technicaljourney">Technical journey</a>
                 <a href="#projects">Projects</a>
@@ -56,7 +56,7 @@
             <div>
                  <div class="row text-center mb-5">
                     <div class="col-lg-8 mx-auto">
-                    <h2 class="section-heading" id ="about me">ABOUT ME</h2>
+                    <h2 class="section-heading" id ="aboutme">ABOUT ME</h2>
                     </div>
                     </div>
                
@@ -89,7 +89,7 @@
                     <ul class="timeline">
                     <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
                         <div class="timeline-arrow"></div>
-                        <h2 class="h5 mb-0">Google Software Product Sprint</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i>July 2020 - Present</span>
+                        <h2 class="h5 mb-0">Google India Software Product Sprint 2020</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i>July 2020 - Present</span>
                         <p class="text-small mt-2 font-weight-light"> A part of first ever Indian version of Google SPS building personally meaningful projects along with a team. The program also includes career development sessions to promote industry practices.</p>
                     </li>
                     <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
@@ -114,16 +114,45 @@
           <!-- Projects -->
         <section>
             <div>
-                <h2 class = "section-heading" id ="aboutme">About Me</h2>
-               
-                        <p>Hello! I am a third-year computer science undergraduate from KNIT, Sultanpur. I have been a fan of Computer Science since my school days. 
-                            Over the course of my engineering degree, I have tried my hands on various things like Android development, Computer architecture research, but most of my 
-                            time has been spent in enjoying competitive programming. Other than coding, I love teaching and meeting new people.
-                            I am also an advocate of increasing the participation of women in tech, and work as a volunteer with communities to support the cause.
+                <div class="row text-center mb-5">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="section-heading" id ="projects">PROJECTS</h2>
+                    </div>
+                </div>
+<!--  -->
+                <!-- Project 1 -->
+                 <div class="row">
+                     <div class="col-md-12">
+                        <img  src="Images/EarthquakeApp.png" class = "projectimage"/>
+                        <h3 class = "projectname"> Tremor Teller</h3>
+                        <p>
+                            An android app which shows the list of ten most recent earthquakes in the world using USGSAPI.Implemented
+                            JSON Parsing, multithreading, parallelism.Implemented network calls to fetch data fromAPI and used ListView to show the data on UI.
                         </p>
-                       
-                         
-                        
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                 <div class="row">
+                     <div class="col-md-12">
+                        <img  src="Images/MiwokApp.jpeg" class = "projectimage"/>
+                        <h3 class = "projectname"> Learn the Language </h3>
+                        <p>
+                            An android app which contains a list of different types of words from a language Miwokalongwith its meaning and pronunciation.Implemented
+                            Explicit intents to allow navigation from one screen to theother.  Also implemented listView and array adapter, MediaPlayer library and audio focus in Android
+                        </p>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                 <div class="row">
+                     <div class="col-md-12">
+                        <img  src="Images/JustjavaApp.jpeg"class = "projectimage"/>
+                        <h3 class = "projectname"> Just Java</h3>
+                        <p>
+                            A simple coffee ordering mobile app.
+                            Implemented basic UI(text,buttons,checkboxes) by XML andused implicit intents to send user input to shops via email.
+                        </p>
+                    </div>
+                </div>
                 
             </div>
         </section>

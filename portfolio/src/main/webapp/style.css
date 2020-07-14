@@ -1,11 +1,28 @@
 
 
-img {
-    height: auto;
-    width: auto;
-    border-radius: 50%
+#mainimage {
+
+    border-radius: 50%;
 }
 
+/* Images for project description */
+.projectimage{
+
+    float:left;
+    width:200px;
+    height:200px; 
+    margin-right:10px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    border-radius: 20%;
+    border-color: #f7786b;
+}
+
+.projectname
+{
+    color: #f7786b;
+
+}
 
 .center {
   display: block;
