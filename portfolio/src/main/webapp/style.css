@@ -1,9 +1,142 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+
+
+img {
+    height: auto;
+    width: auto;
+    border-radius: 50%
 }
 
-#greeting-container {
-  margin-top: 20px;
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 350px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #034f84; /* Dark blue */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fff;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: grey;
+}
+
+/* Style page content */
+.main {
+    margin-top:20px;
+  margin-left: 350px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+ 
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Icons at end of side bar */
+.icon-bar {
+  width: 100%; /* Full-width */
+  background-color: #034f84; /* Dark-grey background */
+  overflow: auto; /* Overflow due to float */
+  margin-top: 100%
+}
+
+.icon-bar a {
+  float: left; /* Float links side by side */
+  text-align: center; /* Center-align text */
+  width: 20%; /* Equal width (5 icons with 20% width each = 100%) */
+  padding: 12px 0; /* Some top and bottom padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 36px; /* Increased font size */
+}
+
+.icon-bar a:hover {
+  background-color: #92a8d1; /* Add a hover color */
+}
+
+
+
+
+/* The font for the whole body */
+#bdy{
+ font-family: 'Open Sans';font-size: 22px;
+}
+
+/* The heading of each section */
+.section-heading{
+ color: #034f84;
+ font-weight: bolder;
+ }
+
+/* Timeline holder */
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+    
+}
+
+ /* Timeline vertical line */
+ul.timeline:before {
+    content: ' ';
+    background: #034f84;
+    display: inline-block;
+    position: absolute;
+    left: 16px;
+    width: 4px;
+    height: 100%;
+    z-index: 400;
+    border-radius: 1rem;
+}
+
+li.timeline-item {
+    margin: 20px 0;
+}
+
+/* Timeline item arrow */
+.timeline-arrow {
+    border-top: 0.5rem solid transparent;
+    border-right: 0.5rem solid #034f84;
+    border-bottom: 0.5rem solid transparent;
+    display: block;
+    position: absolute;
+    left: 2rem;
+}
+
+/* Timeline item circle marker */
+li.timeline-item::before {
+    content: ' ';
+    background: #92a8d1;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #034f84;
+    left: 11px;
+    width: 14px;
+    height: 14px;
+    z-index: 400;
+    box-shadow: 0 0 5px #92a8d1(0, 0, 0, 0.2);
 }
