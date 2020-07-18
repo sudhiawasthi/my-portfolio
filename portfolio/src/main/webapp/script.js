@@ -17,7 +17,24 @@
  */
 function getContent() {
     
-    fetch('/data').then(response => response.text()).then(content => {
-        document.getElementById('content-container').innerText = content;
+    fetch('/data').then(response => response.json()).then(messages => {
+
+        // Gets the element to add the comments
+         const comments = document.getElementById('content-container');
+         comments.innerHTML = '';
+         
+        //Creates list elements
+         for(var commentNum = 0 ; commentNum < 3 ; commentNum++)
+         {
+             comments.appendChild(
+                createListElement(messages[commentNum]));
+         }
+
         });
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
