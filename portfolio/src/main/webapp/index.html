@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
-  <body id = "bdy">
+  <!-- As soon as the whole page loads, a call to function in JS file which fetches data -->
+
+  <body id = "bdy" onload = "getContent()" >
     <div class = "main">
 
         <!-- Side Nav Bar -->
@@ -291,7 +293,8 @@
                         <h2 class="section-heading" id ="contact">CONTACT</h2>
                     </div>
                 </div>
-               <p> Coming sooooooooooooooon............................</p>
+                <!-- The content sent by servlet is added to this container -->
+               <p id = "content-container"> </p>
             </div>
         </section>
 
