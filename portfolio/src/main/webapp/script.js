@@ -21,14 +21,10 @@ function getContent() {
 
         // Gets the element to add the comments
          const comments = document.getElementById('content-container');
-         comments.innerHTML = '';
+         messages.forEach((line) => {
+         comments.appendChild(createListElement(line));
+         });
          
-        //Creates list elements
-         for(var commentNum = 0 ; commentNum < 3 ; commentNum++)
-         {
-             comments.appendChild(
-                createListElement(messages[commentNum]));
-         }
 
         });
 }

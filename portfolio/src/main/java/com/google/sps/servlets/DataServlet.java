@@ -26,21 +26,37 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
+  // List to show on the page
+  ArrayList<String> messages = new ArrayList<String>();
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-    // List to show on the page
-    ArrayList<String> messages = new ArrayList<String>();
-    
-      messages.add("This section will convert to comment1");
-      messages.add("This section will convert to comment2");
-      messages.add("This section will convert to comment3");
 
     //Convert list to JSON 
     String json = convertToJson(messages);
 
-    response.setContentType("text/html;");
+    response.setContentType("application/json");
     response.getWriter().println(json);
+  }
+  
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
+    // Take input from the form
+
+    String userName = request.getParameter("user-name");
+    String userComment = request.getParameter("user-comment");
+
+    //Todo : Add a check for name
+
+    String comment = userName + " says " + userComment;
+
+    // Add the comment to the list of comments
+
+    messages.add(comment);
+    
+    response.sendRedirect("/index.html");
+
   }
 
   private String convertToJson(ArrayList<String> messages)

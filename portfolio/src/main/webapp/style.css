@@ -187,3 +187,8 @@ li.timeline-item::before {
     list-style-image: url(Images/Achievements/star.jpeg);
     
 }
+
+.comments
+{
+    margin-left :50px;
+}
