@@ -15,7 +15,12 @@
 package com.google.sps.servlets;
 
 import com.google.gson.Gson;
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity; 
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,21 +31,54 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-    // List to show on the page
+    Query query = new Query("Comments");
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+
+    // List to show comments
     ArrayList<String> messages = new ArrayList<String>();
-    
-      messages.add("This section will convert to comment1");
-      messages.add("This section will convert to comment2");
-      messages.add("This section will convert to comment3");
+
+    for (Entity entity : results.asIterable()) {
+      String comment = (String) entity.getProperty("comment");
+      messages.add(comment);
+    }
 
     //Convert list to JSON 
     String json = convertToJson(messages);
 
-    response.setContentType("text/html;");
+    response.setContentType("application/json");
     response.getWriter().println(json);
+  }
+  
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
+    // Take input from the form
+
+    String userName = request.getParameter("user-name");
+    String userComment = request.getParameter("user-comment");
+
+    //Todo : Add a check for name
+
+    String comment = userName + " says " + userComment;
+
+    // Add the comment to the list of comments
+
+    Entity commentEntity = new Entity("Comments");
+    commentEntity.setProperty("comment", comment);
+
+
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(commentEntity);
+
+    
+    response.sendRedirect("/index.html");
+
   }
 
   private String convertToJson(ArrayList<String> messages)

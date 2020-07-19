@@ -37,7 +37,7 @@
                 <a href="#community">Community Experiences</a>
                 <a href="#achievements">Achievements</a>
                 <!-- <a href="#hobbies">Hobbies</a> -->
-                <a href="#contact">Contact</a>
+                <a href="#comment">Comment</a>
 
                 <div class="icon-bar">
                     
@@ -290,11 +290,30 @@
             <div>
                 <div class="row text-center mb-5">
                     <div class="col-lg-8 mx-auto">
-                        <h2 class="section-heading" id ="contact">CONTACT</h2>
+                        <h2 class="section-heading" id ="comment">COMMENTS</h2>
                     </div>
                 </div>
                 <!-- The content sent by servlet is added to this container -->
-               <p id = "content-container"> </p>
+                <!-- <p id = "content-container"> </p> -->
+                
+                    <div class="comments">
+                        
+                        <ul id="content-container"></ul>
+
+                        <form action="/data" method="POST">
+                        <textarea name="user-name">Enter your name here</textarea>
+                        <br>
+
+                        <textarea name="user-comment">Add your comment here</textarea>
+                        <br>
+                        <br>
+
+                        <input type="submit" />
+                        </form> 
+
+                    </div>
+                    
+
             </div>
         </section>
 
