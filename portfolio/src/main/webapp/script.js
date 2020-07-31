@@ -12,15 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 /**
  *Contacts server for content and add that to page
  */
 function getContent() {
-    
-    fetch('/data').then(response => response.json()).then(messages => {
+
+    const languageCode = document.getElementById('languages').value;
+    console.log(languageCode);
+
+    const params = new URLSearchParams();
+    params.append('languageCode', languageCode);
+
+    var queryString = params.toString();
+
+    fetch('/data/?' + queryString).then(response => response.json()).then(messages => {
 
         // Gets the element to add the comments
          const comments = document.getElementById('content-container');
+         comments.innerHTML = "";
          messages.forEach((line) => {
          comments.appendChild(createListElement(line));
          });
@@ -29,8 +39,34 @@ function getContent() {
         });
 }
 
+// function getTranslatedContent() {
+
+//     const languageCode = document.getElementById('languages').value;
+    
+//     const params = new URLSearchParams();
+//         params.append('languageCode', languageCode);
+
+//     fetch('/data',{
+          
+//           body: params
+//         }).then(response => response.json()).then(messages => {
+
+//         // Gets the element to add the comments
+//          const comments = document.getElementById('content-container');
+//          messages.forEach((line) => {
+//          comments.appendChild(createListElement(line));
+//          });
+         
+
+//         });
+// }
+
 function createListElement(text) {
   const liElement = document.createElement('li');
   liElement.innerText = text;
   return liElement;
 }
+
+
+
+
