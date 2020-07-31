@@ -21,19 +21,26 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity; 
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
-@WebServlet("/data")
+@WebServlet("/data/*")
 public class DataServlet extends HttpServlet {
 
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
+    String queryString = request.getQueryString();
+    int queryStringLength = queryString.length();
+    //The language Code is present at last of the queryString with length always equal to 2
+    String languageCode = queryString.substring(queryStringLength-2);
 
     Query query = new Query("Comments");
 
@@ -44,9 +51,17 @@ public class DataServlet extends HttpServlet {
     ArrayList<String> messages = new ArrayList<String>();
 
     for (Entity entity : results.asIterable()) {
+
       String comment = (String) entity.getProperty("comment");
-      messages.add(comment);
-    }
+
+      //Do the translation
+        Translate translate = TranslateOptions.getDefaultInstance().getService();
+        Translation translation =
+        translate.translate(comment, Translate.TranslateOption.targetLanguage(languageCode));
+        
+        String translatedComment = translation.getTranslatedText();
+        messages.add(translatedComment);
+      }
 
     //Convert list to JSON 
     String json = convertToJson(messages);
@@ -63,7 +78,6 @@ public class DataServlet extends HttpServlet {
     String userName = request.getParameter("user-name");
     String userComment = request.getParameter("user-comment");
 
-    //Todo : Add a check for name
 
     String comment = userName + " says " + userComment;
 
@@ -80,6 +94,7 @@ public class DataServlet extends HttpServlet {
     response.sendRedirect("/index.html");
 
   }
+
 
   private String convertToJson(ArrayList<String> messages)
   {
